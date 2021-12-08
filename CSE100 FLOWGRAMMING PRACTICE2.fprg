@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="DELL"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2021-11-30 03:49:15 PM"/>
+        <attribute name="created" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMS0xMS0zMDswMzoyMDozNCBQTTsyNTgy"/>
+        <attribute name="edited" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMS0xMS0zMDswMzo0OToxNSBQTTsxOzI3MDA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="n, sum, i" type="Integer" array="False" size=""/>
+            <input variable="n"/>
+            <assign variable="i" expression="0"/>
+            <assign variable="sum" expression="0"/>
+            <while expression="n&gt;i">
+                <assign variable="sum" expression="sum+i"/>
+                <assign variable="i" expression="i+2"/>
+            </while>
+            <output expression="sum" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
