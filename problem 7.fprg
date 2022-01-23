@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="DELL"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-01-23 03:05:55 PM"/>
+        <attribute name="created" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMS0yMzswMjo0NTo0NCBQTTsyNTkx"/>
+        <attribute name="edited" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMS0yMzswMzowNTo1NSBQTTsxOzI2OTg="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="totalelements, arreystorage, totalelements2, forloop, toloop" type="Integer" array="False" size=""/>
+            <output expression="&quot;how many elements are there in the first set&quot;" newline="True"/>
+            <input variable="totalelements"/>
+            <declare name="myarrey" type="Integer" array="True" size="totalelements"/>
+            <for variable="arreystorage" start="0" end="totalelements-1" direction="inc" step="1">
+                <output expression="&quot;what is the number&quot;" newline="True"/>
+                <input variable="myarrey[arreystorage]"/>
+            </for>
+            <output expression="&quot;how many elements are there in the second set&quot;" newline="True"/>
+            <input variable="totalelements2"/>
+            <declare name="myarrey2" type="Integer" array="True" size="totalelements2"/>
+            <for variable="arreystorage" start="0" end="totalelements2-1" direction="inc" step="1">
+                <output expression="&quot;what is the element in  set2&quot;" newline="True"/>
+                <input variable="myarrey2[arreystorage]"/>
+            </for>
+            <for variable="forloop" start="0" end="totalelements-1" direction="inc" step="1">
+                <for variable="toloop" start="0" end="totalelements2-1" direction="inc" step="1">
+                    <if expression="myarrey[forloop]==myarrey2[toloop]">
+                        <then>
+                            <output expression="myarrey[forloop]" newline="True"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
