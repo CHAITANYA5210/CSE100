@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="DELL"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-01-23 02:40:18 PM"/>
+        <attribute name="created" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMS0yMzswMjowNDoxOSBQTTsyNTg4"/>
+        <attribute name="edited" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMS0yMzswMjo0MDoxOCBQTTszOzI2OTc="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="totalelements, arreystorage, forloop, toloop, insidecount, finder" type="Integer" array="False" size=""/>
+            <output expression="&quot;how many numbers are there in areey&quot;" newline="True"/>
+            <input variable="totalelements"/>
+            <declare name="myarrey" type="Integer" array="True" size="totalelements"/>
+            <for variable="arreystorage" start="0" end="totalelements-1" direction="inc" step="1">
+                <output expression="&quot;what is the number&quot;" newline="True"/>
+                <input variable="myarrey[arreystorage]"/>
+            </for>
+            <assign variable="insidecount" expression="1"/>
+            <for variable="forloop" start="0" end="totalelements" direction="inc" step="1">
+                <for variable="toloop" start="0" end="totalelements-1" direction="inc" step="1">
+                    <if expression="myarrey[toloop]==insidecount">
+                        <then>
+                            <assign variable="finder" expression="insidecount"/>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+                <if expression="finder==insidecount">
+                    <then>
+                        <assign variable="insidecount" expression="insidecount+1"/>
+                    </then>
+                    <else>
+                        <output expression="insidecount &amp; &quot; is missing&quot;" newline="True"/>
+                        <breakpoint/>
+                    </else>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
