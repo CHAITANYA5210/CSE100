@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="DELL"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-01-23 06:10:32 AM"/>
+        <attribute name="created" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMS0yMzswNDowODozMyBBTTsyNTc1"/>
+        <attribute name="edited" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMS0yMzswNDowODozNiBBTTsxO0RFTEw7REVTS1RPUC1PNTQ5Sk4zOzIwMjItMDEtMjI7MDM6MjM6MzAgQU07c2VsZWN0aW9uIHNvcnQgbWUuZnByZzs3NTQ0"/>
+        <attribute name="edited" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMS0yMzswNjoxMDozMiBBTTs5OzI2ODU="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="totalelements, arreystorage, state, i, k, forloop" type="Integer" array="False" size=""/>
+            <declare name="search" type="String" array="False" size=""/>
+            <output expression="&quot;how many members are on the table&quot;" newline="True"/>
+            <input variable="totalelements"/>
+            <declare name="myarrey" type="String" array="True" size="totalelements"/>
+            <for variable="arreystorage" start="0" end="totalelements-1" direction="inc" step="1">
+                <output expression="&quot;what is the name&quot;" newline="True"/>
+                <input variable="myarrey[arreystorage]"/>
+            </for>
+            <output expression="&quot;from which member would you like to start&quot;" newline="True"/>
+            <input variable="search"/>
+            <assign variable="state" expression="1"/>
+            <assign variable="i" expression="0"/>
+            <assign variable="k" expression="0"/>
+            <while expression="i&lt;totalelements AND state==1">
+                <if expression="myarrey[i]==search">
+                    <then>
+                        <assign variable="state" expression="0"/>
+                        <assign variable="k" expression="i"/>
+                    </then>
+                    <else/>
+                </if>
+                <assign variable="i" expression="i+1"/>
+            </while>
+            <output expression="&quot;accending order&quot;" newline="True"/>
+            <for variable="forloop" start="0" end="totalelements-1" direction="inc" step="1">
+                <if expression="k==totalelements">
+                    <then>
+                        <if expression="k==totalelements">
+                            <then>
+                                <assign variable="k" expression="0"/>
+                            </then>
+                            <else/>
+                        </if>
+                        <output expression="myarrey[k]" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="myarrey[k]" newline="True"/>
+                    </else>
+                </if>
+                <assign variable="k" expression="k+1"/>
+            </for>
+            <output expression="&quot;decending order&quot;" newline="True"/>
+            <for variable="forloop" start="0" end="totalelements-1" direction="inc" step="1">
+                <if expression="k==0">
+                    <then>
+                        <output expression="myarrey[k]" newline="True"/>
+                    </then>
+                    <else>
+                        <output expression="myarrey[k]" newline="True"/>
+                    </else>
+                </if>
+                <assign variable="k" expression="k-1"/>
+                <if expression="k==-(1)">
+                    <then>
+                        <assign variable="k" expression="totalelements-1"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+        </body>
+    </function>
+</flowgorithm>
