@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="DELL"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-01-24 02:34:00 PM"/>
+        <attribute name="created" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMS0yNDswMToyNjoxMiBQTTsyNTg1"/>
+        <attribute name="edited" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMS0yNDswMjowMzoyMiBQTTsxO1NlbHZpO0RFU0tUT1AtVjNPMTY5RTsyMDIxLTAxLTA0OzEyOjM2OjI3IFBNO1NlbGVjdGlvbiBTb3J0LW4gKDEpLmZwcmc7NzgxMA=="/>
+        <attribute name="edited" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMS0yNDswMjozNDowMCBQTTs2OzI2OTU="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="totalelements, arreystorage, k, forloop, smallest, toloop, temp, result, last" type="Integer" array="False" size=""/>
+            <output expression="&quot;how many elements are there&quot;" newline="True"/>
+            <input variable="totalelements"/>
+            <declare name="myarrey" type="Integer" array="True" size="totalelements"/>
+            <for variable="arreystorage" start="0" end="totalelements-1" direction="inc" step="1">
+                <output expression="&quot;what is the number&quot;" newline="True"/>
+                <input variable="myarrey[arreystorage]"/>
+            </for>
+            <output expression="&quot;which largest element would you like to find&quot;" newline="True"/>
+            <input variable="k"/>
+            <for variable="forloop" start="0" end="totalelements-2" direction="inc" step="1">
+                <assign variable="Smallest" expression="forloop"/>
+                <for variable="toloop" start="forloop+1" end="totalelements-1" direction="inc" step="1">
+                    <if expression="myArrey[toloop]&gt;myArrey[smallest]">
+                        <then/>
+                        <else>
+                            <assign variable="smallest" expression="toloop"/>
+                        </else>
+                    </if>
+                </for>
+                <assign variable="temp" expression="myArrey[smallest]"/>
+                <assign variable="myArrey[smallest]" expression="myArrey[forloop]"/>
+                <assign variable="myArrey[forloop]" expression="temp"/>
+            </for>
+            <assign variable="last" expression="totalelements-1"/>
+            <assign variable="result" expression="last-k+1"/>
+            <output expression="&quot;the number will be &quot; &amp; myarrey[result]" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
