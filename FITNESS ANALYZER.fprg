@@ -1,0 +1,386 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="DELL"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2022-01-27 06:56:57 PM"/>
+        <attribute name="created" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMS0yNTswNDowMzo0NyBBTTsyNTc3"/>
+        <attribute name="edited" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMS0yNzswOTo0ODowMiBBTTsxO0RFTEw7REVTS1RPUC1PNTQ5Sk4zOzIwMjItMDEtMjc7MDg6NTE6MTQgQU07NTMzMQ=="/>
+        <attribute name="edited" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMS0yNzswMzo1MTowMiBQTTsxO0RFTEw7REVTS1RPUC1PNTQ5Sk4zOzIwMjItMDEtMjc7MDM6NDE6MzMgUE07NTM0NA=="/>
+        <attribute name="edited" value="REVMTDtERVNLVE9QLU81NDlKTjM7MjAyMi0wMS0yNzswNjo1Njo1NyBQTTs3MDsyNzY3"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="Age, Month, Day, GoalSteps, GoalBurnCalories, BmiArray, ArreyStorage, MonthlyGoal, ArrayHelp, Steps, CalorieSteps, NoFood, FoodCalories, BmiFor, FoodHelper, GoalWeight, JoggingTime, ExtraStoring, SquintsTime, TotalPushups, RunningTime, NoExercise" type="Integer" array="False" size=""/>
+            <declare name="Name, Gender, HeightUnits, WeightUnits, HeightOpenion, WeightOpenion, AskingMonthlyGoal, GainOrLoose, GainLooseDesision, FoodDecision, FoodEaten, ExerciseDone, YesNoFood, SquintsIntensity, YesNoExercise" type="String" array="False" size=""/>
+            <declare name="Height, weight, HeightInput, Bmi, BurntCaloriesExercise, ExerciseMainCalories, FoodMainCalories, DailyActivities, DailyHeight, DailyWeight" type="Real" array="False" size=""/>
+            <declare name="BmiStorage" type="Integer" array="True" size="10"/>
+            <output expression="&quot;Heyy! how is your day I am your new fitness friend&quot;" newline="True"/>
+            <output expression="&quot;buddy can you tell me your name&quot;" newline="True"/>
+            <comment text="user name will be taken for more interactiveness"/>
+            <input variable="Name"/>
+            <output expression="&quot;Hii &quot; &amp; Name &amp; &quot; I am your fitness analyzer&quot;" newline="True"/>
+            <output expression="Name &amp; &quot; Can you tell me your gender ? male/female&quot;" newline="True"/>
+            <comment text="gender will be taken for some caluculations"/>
+            <input variable="Gender"/>
+            <output expression="&quot;Buddy can you tell me your age&quot;" newline="False"/>
+            <input variable="Age"/>
+            <do expression="Len(HeightOpenion)==3">
+                <output expression="&quot;hey &quot; &amp; name &amp; &quot; can you tell me in which units would you like to give height feet/cm&quot;" newline="True"/>
+                <comment text="height will be taken in different units and converted into meters for furthur usage"/>
+                <input variable="HeightUnits"/>
+                <if expression="Len(HeightUnits)==4">
+                    <then>
+                        <output expression="&quot;ooh &quot; &amp; Name &amp; &quot; you selected my favorite units and can you give me your height&quot;" newline="True"/>
+                        <input variable="HeightInput"/>
+                        <assign variable="Height" expression="HeightInput*0.3048"/>
+                        <assign variable="HeightOpenion" expression="&quot;No&quot;"/>
+                    </then>
+                    <else>
+                        <if expression="Len(HeightUnits)==2">
+                            <then>
+                                <output expression="&quot;ooh &quot; &amp; Name &amp; &quot; you selected my favorite units and can you give me your height&quot;" newline="True"/>
+                                <input variable="HeightInput"/>
+                                <assign variable="DailyHeight" expression="HeightInput"/>
+                                <assign variable="Height" expression="HeightInput*0.01"/>
+                                <assign variable="HeightOpenion" expression="&quot;No&quot;"/>
+                            </then>
+                            <else>
+                                <output expression="&quot;you selected the wrong units would you like to re-enter Yes/No&quot;" newline="True"/>
+                                <comment text="If user typed wrong units loop will ask the user to retry"/>
+                                <input variable="HeightOpenion"/>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <comment text="Do-while loop is Used if the user typed the wrong units"/>
+            </do>
+            <do expression="WeightOpenion=&quot;yes&quot;">
+                <output expression="&quot;Good &quot; &amp; name &amp; &quot; can you tell me your weight and the units kg/pound/st&quot;" newline="True"/>
+                <comment text="height will be taken in different units and converted into kg's for furthur usage"/>
+                <input variable="WeightUnits"/>
+                <if expression="WeightUnits=&quot;kg&quot;">
+                    <then>
+                        <output expression="&quot;can you tell me your weight in &quot; &amp; WeightUnits" newline="True"/>
+                        <input variable="Weight"/>
+                        <assign variable="WeightOpenion" expression="&quot;No&quot;"/>
+                    </then>
+                    <else>
+                        <if expression="WeightUnits=&quot;pound&quot;">
+                            <then>
+                                <output expression="&quot;can you tell me your weight in &quot; &amp; WeightUnits" newline="True"/>
+                                <input variable="Weight"/>
+                                <assign variable="Weight" expression="Weight*0.453592"/>
+                                <assign variable="WeightOpenion" expression="&quot;No&quot;"/>
+                            </then>
+                            <else>
+                                <if expression="WeightUnits=&quot;st&quot;">
+                                    <then>
+                                        <output expression="&quot;can you tell me your weight in &quot; &amp; WeightUnits" newline="True"/>
+                                        <input variable="Weight"/>
+                                        <assign variable="Weight" expression="Weight*6.35029"/>
+                                        <assign variable="WeightOpenion" expression="&quot;No&quot;"/>
+                                    </then>
+                                    <else>
+                                        <output expression="&quot;you selected the wrong units would you like to re-enter Yes/No&quot;" newline="True"/>
+                                        <comment text="If user typed wrong units loop will ask the user to retry"/>
+                                        <input variable="WeightOpenion"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <comment text="Do-while loop is Used if the user typed the wrong units"/>
+            </do>
+            <assign variable="ArrayHelp" expression="0"/>
+            <assign variable="Day" expression="1"/>
+            <assign variable="Month" expression="0"/>
+            <do expression="Month&gt;1">
+                <for variable="BmiFor" start="0" end="0" direction="inc" step="1">
+                    <if expression="WeightUnits=&quot;pound&quot;">
+                        <then>
+                            <assign variable="Bmi" expression="Weight/(Height*Height)+1"/>
+                        </then>
+                        <else>
+                            <assign variable="Bmi" expression="Weight/(Height*Height)"/>
+                        </else>
+                    </if>
+                    <comment text="Bmi is calculated throgh user inputs"/>
+                    <if expression="Bmi&lt;18.5">
+                        <then>
+                            <output expression="&quot;Hey buddy your are too underweight let me help you gain weight and your BMI is&quot; &amp; Bmi" newline="True"/>
+                            <assign variable="GainOrLoose" expression="&quot;Gain&quot;"/>
+                        </then>
+                        <else>
+                            <if expression="Bmi&gt;=18.5 &amp;&amp; Bmi&lt;=24.9">
+                                <then>
+                                    <output expression="&quot;Hey &quot; &amp; Name &amp; &quot; congratulation you are in normal weight range lets start exercise today and your BMI is &quot; &amp; Bmi" newline="True"/>
+                                    <if expression="Bmi&lt;21.7">
+                                        <then>
+                                            <output expression="&quot;I would suggest you that you should have to gain the wait what would you like to say yes/no&quot;" newline="True"/>
+                                            <input variable="GainLooseDesision"/>
+                                            <if expression="GainLooseDesision=&quot;yes&quot;">
+                                                <then>
+                                                    <output expression="&quot;ok buddy&quot;" newline="True"/>
+                                                    <assign variable="GainOrLoose" expression="&quot;loose&quot;"/>
+                                                </then>
+                                                <else>
+                                                    <assign variable="GainOrLoose" expression="&quot;Gain&quot;"/>
+                                                </else>
+                                            </if>
+                                        </then>
+                                        <else>
+                                            <output expression="&quot;i think you are doing well&quot;" newline="True"/>
+                                            <assign variable="GainOrLoose" expression="&quot;Gain&quot;"/>
+                                        </else>
+                                    </if>
+                                </then>
+                                <else>
+                                    <if expression="Bmi&gt;=25 &amp;&amp; Bmi&lt;=29.9">
+                                        <then>
+                                            <output expression="&quot;you are overweight &quot; &amp; Name &amp; &quot; let's start exercise today and your BMI is &quot; &amp; Bmi" newline="True"/>
+                                            <assign variable="GainOrLoose" expression="&quot;loose&quot;"/>
+                                        </then>
+                                        <else>
+                                            <if expression="Bmi&gt;=30">
+                                                <then>
+                                                    <output expression="&quot;buddy you are over weight let's start exercise and take a diet plan and your BMI is &quot; &amp; Bmi" newline="True"/>
+                                                    <assign variable="GainOrLoose" expression="&quot;loose&quot;"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                    <assign variable="BmiStorage[ArrayHelp]" expression="Bmi"/>
+                    <assign variable="ArrayHelp" expression="ArrayHelp+1"/>
+                    <output expression="&quot;Dude i have a doubt do you have any monthly goals like to loose your weight weight yes/no&quot;" newline="True"/>
+                    <comment text="asking the user weather he had any monthly goals on loosing or gaining weight"/>
+                    <input variable="AskingMonthlyGoal"/>
+                    <if expression="AskingMonthlyGoal=&quot;yes&quot;">
+                        <then>
+                            <output expression="&quot;I like you a lot buddy can you tell me how much weight would you like to &quot; &amp; GainOrLoose" newline="True"/>
+                            <input variable="MonthlyGoal"/>
+                            <if expression="WeightUnits=&quot;kg&quot;">
+                                <then>
+                                    <assign variable="GoalWeight" expression="MonthlyGoal"/>
+                                    <assign variable="WeightOpenion" expression="&quot;No&quot;"/>
+                                </then>
+                                <else>
+                                    <if expression="WeightUnits=&quot;pound&quot;">
+                                        <then>
+                                            <assign variable="GoalWeight" expression="Monthlygoal*0.453592"/>
+                                        </then>
+                                        <else>
+                                            <if expression="WeightUnits=&quot;st&quot;">
+                                                <then>
+                                                    <assign variable="GoalWeight" expression="MonthlyGoal*6.35029"/>
+                                                </then>
+                                                <else/>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </then>
+                        <else/>
+                    </if>
+                </for>
+                <for variable="Day" start="1" end="30" direction="inc" step="1">
+                    <output expression="&quot;Set a goal today it will help you achieve it&quot;" newline="True"/>
+                    <output expression="&quot;Heyy buddy how many steps do you want to walk today&quot;" newline="True"/>
+                    <comment text="asking the user weather he has any day goals on steps"/>
+                    <input variable="GoalSteps"/>
+                    <output expression="&quot;good can you tell me how many calories would you like to burn&quot;" newline="True"/>
+                    <comment text="asking the user weather he has any day goals on calories"/>
+                    <input variable="GoalBurnCalories"/>
+                    <comment text="this is a daily loop which loop turns only once"/>
+                    <output expression="&quot;hey buddy can you tell me how many steps do you walk today&quot;" newline="True"/>
+                    <comment text="###########"/>
+                    <input variable="Steps"/>
+                    <assign variable="CalorieSteps" expression="(Steps*40)/1000"/>
+                    <output expression="&quot;can you tell me what do you eat today&quot;" newline="True"/>
+                    <output expression="&quot;i will give you 10 common food you can select from list if you dont eat according to the list you can give calories manually&quot;" newline="True"/>
+                    <output expression="&quot;Eggs&#13;&#10;Milk&#13;&#10;Breakfast&#13;&#10;Morning snacks&#13;&#10;Lunch&#13;&#10;Afternoon snacks&#13;&#10;Fast Foods&#13;&#10;Biryani&#13;&#10;Roti&quot;" newline="True"/>
+                    <assign variable="ExtraStoring" expression="0"/>
+                    <assign variable="FoodMainCalories" expression="0"/>
+                    <do expression="YesNoFood=&quot;no&quot;">
+                        <output expression="&quot;can you tell me what the food item you eat from the above list if not type no and give calories&quot;" newline="True"/>
+                        <input variable="FoodEaten"/>
+                        <if expression="FoodEaten=&quot;no&quot;">
+                            <then>
+                                <output expression="&quot;tell me the calories of the food item you have eaten&quot;" newline="True"/>
+                                <input variable="NoFood"/>
+                                <assign variable="ExtraStoring" expression="NoFood"/>
+                            </then>
+                            <else/>
+                        </if>
+                        <if expression="FoodEaten=&quot;eggs&quot;">
+                            <then>
+                                <assign variable="FoodHelper" expression="20"/>
+                                <assign variable="FoodCalories" expression="Random(FoodHelper)+70"/>
+                            </then>
+                            <else>
+                                <if expression="FoodEaten=&quot;milk&quot;">
+                                    <then>
+                                        <assign variable="FoodHelper" expression="30"/>
+                                        <assign variable="FoodCalories" expression="Random(FoodHelper)+130"/>
+                                    </then>
+                                    <else>
+                                        <if expression="FoodEaten=&quot;breakfast&quot;">
+                                            <then>
+                                                <assign variable="FoodHelper" expression="200"/>
+                                                <assign variable="FoodCalories" expression="Random(FoodHelper)+200"/>
+                                            </then>
+                                            <else>
+                                                <if expression="FoodEaten=&quot;morning snacks&quot;">
+                                                    <then>
+                                                        <assign variable="FoodHelper" expression="50"/>
+                                                        <assign variable="FoodCalories" expression="Random(FoodHelper)+200"/>
+                                                    </then>
+                                                    <else>
+                                                        <if expression="FoodEaten=&quot;lunch&quot;">
+                                                            <then>
+                                                                <assign variable="FoodHelper" expression="200"/>
+                                                                <assign variable="FoodCalories" expression="Random(FoodHelper)+500"/>
+                                                            </then>
+                                                            <else>
+                                                                <if expression="FoodEaten=&quot;afternoon snacks&quot;">
+                                                                    <then>
+                                                                        <assign variable="FoodHelper" expression="50"/>
+                                                                        <assign variable="FoodCalories" expression="Random(FoodHelper)+200"/>
+                                                                    </then>
+                                                                    <else>
+                                                                        <if expression="FoodEaten=&quot;dinner&quot;">
+                                                                            <then>
+                                                                                <assign variable="FoodHelper" expression="200"/>
+                                                                                <assign variable="FoodCalories" expression="Random(FoodHelper)+500"/>
+                                                                            </then>
+                                                                            <else>
+                                                                                <if expression="FoodEaten=&quot;fast food&quot;">
+                                                                                    <then>
+                                                                                        <assign variable="FoodHelper" expression="100"/>
+                                                                                        <assign variable="FoodCalories" expression="Random(FoodHelper)+300"/>
+                                                                                    </then>
+                                                                                    <else>
+                                                                                        <if expression="FoodEaten=&quot;Roti&quot;">
+                                                                                            <then>
+                                                                                                <assign variable="FoodHelper" expression="53"/>
+                                                                                                <assign variable="FoodCalories" expression="Random(FoodHelper)+297"/>
+                                                                                            </then>
+                                                                                            <else/>
+                                                                                        </if>
+                                                                                    </else>
+                                                                                </if>
+                                                                            </else>
+                                                                        </if>
+                                                                    </else>
+                                                                </if>
+                                                            </else>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                        <assign variable="FoodMainCalories" expression="FoodMainCalories+FoodCalories+ExtraStoring"/>
+                        <output expression="&quot;Do you give all the food items you eat today yes/no&quot;" newline="True"/>
+                        <input variable="YesNoFood"/>
+                    </do>
+                    <output expression="&quot;these are some of the most common exercises &quot;" newline="True"/>
+                    <output expression="&quot;yoga&#13;&#10;jogging&#13;&#10;squints&#13;&#10;pushups&#13;&#10;running&quot;" newline="True"/>
+                    <assign variable="NoExercise" expression="0"/>
+                    <assign variable="ExerciseMainCalories" expression="0"/>
+                    <do expression="YesNoExercise=&quot;yes&quot;">
+                        <output expression="&quot;can you tell me what are the exercises you done from list if different you can type no and enter calories&quot;" newline="True"/>
+                        <input variable="ExerciseDone"/>
+                        <if expression="ExerciseDone=&quot;no&quot;">
+                            <then>
+                                <output expression="&quot;tell me the calories of the food item you have eaten&quot;" newline="True"/>
+                                <input variable="NoExercise"/>
+                            </then>
+                            <else/>
+                        </if>
+                        <if expression="ExerciseDone=&quot;yoga&quot;">
+                            <then>
+                                <assign variable="BurntCaloriesExercise" expression="Random(120)+180"/>
+                            </then>
+                            <else>
+                                <if expression="ExerciseDone=&quot;jogging&quot;">
+                                    <then>
+                                        <output expression="&quot;How many minutes have you done Jogging&quot;" newline="True"/>
+                                        <input variable="JoggingTime"/>
+                                        <assign variable="BurntCaloriesExercise" expression="JoggingTime*11.4"/>
+                                    </then>
+                                    <else>
+                                        <if expression="ExerciseDone=&quot;squints&quot;">
+                                            <then>
+                                                <output expression="&quot;have you done squints with hight intensity or low intensity (high/low)&quot;" newline="True"/>
+                                                <input variable="SquintsIntensity"/>
+                                                <if expression="SquintsIntensity=&quot;high&quot;">
+                                                    <then>
+                                                        <output expression="&quot;how much time have you done squints with &quot; &amp; SquintsIntensity &amp; &quot; intensity&quot;" newline="True"/>
+                                                        <input variable="SquintsTime"/>
+                                                        <assign variable="BurntCaloriesExercise" expression="SquintsTime*8.8"/>
+                                                    </then>
+                                                    <else>
+                                                        <output expression="&quot;how much time have you done squints with &quot; &amp; SquintsIntensity &amp; &quot; intensity&quot;" newline="True"/>
+                                                        <input variable="SquintsTime"/>
+                                                        <assign variable="BurntCaloriesExercise" expression="SquintsTime*3.5"/>
+                                                    </else>
+                                                </if>
+                                            </then>
+                                            <else>
+                                                <if expression="ExerciseDone=&quot;pushups&quot;">
+                                                    <then>
+                                                        <assign variable="BurntCaloriesExercise" expression="Random(120)+180"/>
+                                                        <output expression="&quot;how many pushups have you done&quot;" newline="True"/>
+                                                        <input variable="TotalPushups"/>
+                                                        <assign variable="BurntCaloriesExercise" expression="(Random(0.3)+0.3)*TotalPushups"/>
+                                                    </then>
+                                                    <else>
+                                                        <if expression="ExerciseDone=&quot;running&quot;">
+                                                            <then>
+                                                                <output expression="&quot;How many minutes have you done running&quot;" newline="True"/>
+                                                                <input variable="RunningTime"/>
+                                                                <assign variable="BurntCaloriesExercise" expression="RunningTime*11.4"/>
+                                                            </then>
+                                                            <else/>
+                                                        </if>
+                                                    </else>
+                                                </if>
+                                            </else>
+                                        </if>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                        <assign variable="ExerciseMainCalories" expression="ExerciseMainCalories+BurntCaloriesExercise+NoExercise"/>
+                        <output expression="&quot;Do you do any other you have if no type no&quot;" newline="True"/>
+                        <input variable="YesNoExercise"/>
+                    </do>
+                    <if expression="Gender=&quot;male&quot;">
+                        <then>
+                            <assign variable="DailyHeight" expression="Height*100"/>
+                            <assign variable="DailyActivities" expression="66+(6.2*Weight)+(12.7*DailyHeight)-(6.76*Age)"/>
+                        </then>
+                        <else>
+                            <assign variable="DailyHeight" expression="Height*100"/>
+                            <assign variable="DailyActivities" expression="65.1+(4.35*Weight)+(4.7*DailyHeight)-(4.7*Age)"/>
+                        </else>
+                    </if>
+                </for>
+                <comment text="this is a montly loop i mean this loop turns only once a month"/>
+            </do>
+        </body>
+    </function>
+</flowgorithm>
